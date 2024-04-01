@@ -1,13 +1,13 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
 vim.opt.rtp:prepend(lazypath)
 --Load plugins
@@ -18,8 +18,10 @@ require("plugins")
 
 --		Loads settings native to Neovim
 require("setups/native")
---		Sets up the Dracula plugin and loads it as theme
-require("setups/dracula")
+--		theme
+-- require("setups/dracula")
+vim.cmd.colorscheme("catppuccin-macchiato")
+
 --		File tree
 require("setups/neo-tree")
 --		Fuzzy finder
@@ -34,10 +36,6 @@ require("setups/nvim-comment")
 --THE ORDER OF THE THINGS IN THE FOLLOWING BLOCK IS IMPORTANT
 --		Completeion engine for LSP servers
 require("setups/lsp/nvim-cmp")
---		Package manager for language servers etc
-require("setups/lsp/mason")
---		LSP configurator
-require("setups/lsp/mason-lspconfig")
 --		Lsp window configuration
 require("setups/lsp/lspconfig")
 --		pretty lsp menus n shit
@@ -56,8 +54,6 @@ require("setups/gitsigns")
 require("setups/lsp/nvim-dap")
 --		flash, for moving better
 require("setups/flash")
---      for fancy java stuff
--- require("setups/lsp/jdtls")
 --      org mode for Neovim
 require("setups/neorg")
 

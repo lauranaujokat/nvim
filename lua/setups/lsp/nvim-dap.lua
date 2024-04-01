@@ -14,57 +14,57 @@ require("dapui").setup({
 			step_into = "",
 			step_out = "",
 			step_over = "",
-			terminate = ""
-		}
+			terminate = "",
+		},
 	},
 	element_mappings = {},
 	expand_lines = true,
 	floating = {
 		border = "single",
 		mappings = {
-			close = { "q", "<Esc>" }
-		}
+			close = { "q", "<Esc>" },
+		},
 	},
 	force_buffers = true,
 	icons = {
 		collapsed = "",
 		current_frame = "",
-		expanded = ""
+		expanded = "",
 	},
-	layouts = { {
-		elements = { {
-			id = "scopes",
-			size = 0.95
-		}, {
-			id = "breakpoints",
-			size = 0.5
-		}
+	layouts = {
+		{
+			elements = { {
+				id = "scopes",
+				size = 0.95,
+			}, {
+				id = "breakpoints",
+				size = 0.5,
+			} },
+			position = "left",
+			size = 40,
 		},
-		position = "left",
-		size = 40
-	}, {
-		elements = { {
-			id = "repl",
-			size = 1
+		{
+			elements = { {
+				id = "repl",
+				size = 1,
+			} },
+			position = "bottom",
+			size = 10,
 		},
-		},
-		position = "bottom",
-		size = 10
-	} },
+	},
 	mappings = {
 		edit = "e",
 		expand = { "<CR>", "<2-LeftMouse>" },
 		open = "o",
 		remove = "d",
 		repl = "r",
-		toggle = "t"
+		toggle = "t",
 	},
 	render = {
 		indent = 1,
-		max_value_lines = 100
-	}
-}
-)
+		max_value_lines = 100,
+	},
+})
 local dap, dapui = require("dap"), require("dapui")
 
 dap.listeners.after.event_initialized["dapui_config"] = function()

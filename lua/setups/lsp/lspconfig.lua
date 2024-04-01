@@ -21,4 +21,27 @@ vim.diagnostic.config({
 	update_ininsert = true,
 	severity_sort = true,
 })
---q w x y f
+
+local lspconfig = require("lspconfig")
+local cmp_nvim_lsp = require("cmp_nvim_lsp")
+local capabilities = cmp_nvim_lsp.default_capabilities()
+local handlers = {
+	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" }),
+	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" }),
+}
+local on_attach = function(_, bufnr)
+	require("lsp_signature").on_attach(signature_setup, bufnr)
+end
+
+local on_attach_rust = function(_, bufnr)
+	require("lsp_signature").on_attach(signature_setup, bufnr)
+	vim.keymap.set("n", "<C-space>", "<cmd>RustHoverAction<cr>")
+end
+
+local settings = require("setups/lsp/server-settings")
+for k, v in pairs(settings) do
+	local setting = v
+	setting.capabilities = capabilities
+	setting.on_attach = on_attach
+	lspconfig[k].setup(setting)
+end

@@ -6,7 +6,7 @@ require("bufferline").setup({
 		close_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
 		right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
 		left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
-		middle_mouse_command = nil,    -- can be a string | function, see "Mouse actions"
+		middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
 		indicator = {
 			-- icon = '▎', -- this should be omitted if indicator style is not 'icon'
 			-- style = 'icon' | 'underline' | 'none',
@@ -78,7 +78,7 @@ require("bufferline").setup({
 			-- This can be used to change how bufferline fetches the icon
 			-- for an element e.g. a buffer or a tab.
 			-- e.g.
-			local icon, hl = require('nvim-web-devicons').get_icon_by_filetype(element.filetype, { default = false })
+			local icon, hl = require("nvim-web-devicons").get_icon_by_filetype(element.filetype, { default = false })
 			return icon, hl
 		end,
 		show_close_icon = false,

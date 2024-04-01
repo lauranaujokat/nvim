@@ -11,7 +11,7 @@ local source_mapping = {
 }
 
 local border_opts =
-{ border = "single", winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None" }
+	{ border = "single", winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None" }
 cmp.setup({
 	formatting = {
 		fields = { "kind", "abbr", "menu" },

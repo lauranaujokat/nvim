@@ -27,9 +27,9 @@ dracula.setup({
 	-- show the '~' characters after the end of buffers
 	show_end_of_buffer = false, -- default false
 	-- use transparent background
-	transparent_bg = true,   -- default false
+	transparent_bg = true, -- default false
 	-- set italic comment
-	italic_comment = false,  -- default false
+	italic_comment = false, -- default false
 	-- overrides the default highlights see `:h synIDattr`
 	overrides = {
 
@@ -82,11 +82,8 @@ dracula.setup({
 		LSOutlinePreviewBorder = { bg = dracula.colors().bg, fg = dracula.colors().purple },
 
 		StatusLine = { bg = dracula.colors().bg },
-
-
 	},
 })
-vim.cmd([[colorscheme dracula]])
 vim.cmd([[
 	highlight! link NeoTreeDirectoryIcon NvimTreeFolderIcon
 	highlight! link NeoTreeDirectoryName NvimTreeFolderName
@@ -95,3 +92,4 @@ vim.cmd([[
 	highlight! link NeoTreeDirectoryName NvimTreeOpenedFolderName
 	highlight! link NeoTreeFileNameOpened NvimTreeOpenedFile
 ]])
+vim.cmd.colorscheme("dracula")

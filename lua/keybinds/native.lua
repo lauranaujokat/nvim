@@ -11,7 +11,7 @@ map("n", "<leader>p", '"+p')
 map("v", "<leader>p", '"+p')
 --buffer stuff
 map("n", "<C-q>", "<cmd>bdelete!<cr>")
-local opts = {noremap = false}
+local opts = { noremap = false }
 map("n", "<left>", "<cmd>2winc <<cr>", opts)
 map("n", "<right>", "<cmd>2winc ><cr>", opts)
 map("n", "<down>", "<cmd>2winc -<cr>", opts)

@@ -1,109 +1,103 @@
 local plugins = {
-    --theme
-    "Mofiqul/dracula.nvim",
+	--theme
+	"Mofiqul/dracula.nvim",
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000,
+	},
 
-    --file tree
-    {
-        "nvim-neo-tree/neo-tree.nvim",
-        branch = "v3.x",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "kyazdani42/nvim-web-devicons",
-            "MunifTanjim/nui.nvim",
-        },
-        lazy = false,
-    },
+	--file tree
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"kyazdani42/nvim-web-devicons",
+			"MunifTanjim/nui.nvim",
+		},
+		lazy = false,
+	},
 
-    --telescope, fuzzy finder
-    {
-        "nvim-telescope/telescope.nvim",
-        dependencies = { "nvim-lua/plenary.nvim" },
-        lazy = true
-    },
-    --filebrowser for telescope
-    { "nvim-telescope/telescope-file-browser.nvim", lazy = true },
-    { "nvim-treesitter/nvim-treesitter",            lazy = true },
+	--telescope, fuzzy finder
+	{
+		"nvim-telescope/telescope.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		lazy = true,
+	},
+	--filebrowser for telescope
+	{ "nvim-telescope/telescope-file-browser.nvim", lazy = true },
+	{ "nvim-treesitter/nvim-treesitter", lazy = true },
 
-    --indents with pretty lines uwu
-    { "lukas-reineke/indent-blankline.nvim",        dependencies = { "nvim-treesitter/nvim-treesitter" }, lazy = true },
+	--indents with pretty lines uwu
+	{ "lukas-reineke/indent-blankline.nvim", dependencies = { "nvim-treesitter/nvim-treesitter" }, lazy = true },
 
-    --comment toggler
-    "terrortylor/nvim-comment",
+	--comment toggler
+	"terrortylor/nvim-comment",
 
-    --autopairs
-    {
-        'windwp/nvim-autopairs',
-        event = "InsertEnter",
-        opts = {} -- this is equalent to setup({}) function
-    },
+	--autopairs
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		opts = {}, -- this is equalent to setup({}) function
+	},
 
-    --LSP etc manager
-    { "williamboman/mason.nvim",           lazy = true },
+	--LSP completion engine
+	{
+		"hrsh7th/nvim-cmp",
+		dependencies = {
+			"neovim/nvim-lspconfig",
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline",
+			"hrsh7th/cmp-vsnip",
+			"hrsh7th/vim-vsnip",
+			"onsails/lspkind.nvim",
+		},
+		lazy = true,
+	},
 
-    --LSP configurator
-    { "williamboman/mason-lspconfig.nvim", lazy = true },
+	--Lsp saga, makes nice interactions with lsp
+	{ "glepnir/lspsaga.nvim", lazy = true },
+	{ "akinsho/bufferline.nvim", dependencies = "kyazdani42/nvim-web-devicons", lazy = true },
 
-    --LSP completion engine
-    {
-        "hrsh7th/nvim-cmp",
-        dependencies = {
-            "neovim/nvim-lspconfig",
-            "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/cmp-buffer",
-            "hrsh7th/cmp-path",
-            "hrsh7th/cmp-cmdline",
-            "hrsh7th/cmp-vsnip",
-            "hrsh7th/vim-vsnip",
-            "onsails/lspkind.nvim",
-        },
-        lazy = true
-    },
+	--	heirline, for the true heir
+	"rebelot/heirline.nvim",
 
-    --Lsp saga, makes nice interactions with lsp
-    { "glepnir/lspsaga.nvim",    lazy = true },
-    { "akinsho/bufferline.nvim", dependencies = "kyazdani42/nvim-web-devicons", lazy = true },
+	--	gitsigns, for heirline to work
+	"lewis6991/gitsigns.nvim",
 
-    --	heirline, for the true heir
-    "rebelot/heirline.nvim",
+	--rust tools
+	{ "simrat39/rust-tools.nvim", lazy = true },
 
-    --	gitsigns, for heirline to work
-    "lewis6991/gitsigns.nvim",
+	--	outline list thingy for navigating my code really goodly
+	"simrat39/symbols-outline.nvim",
 
-    --rust tools
-    { "simrat39/rust-tools.nvim", lazy = true },
+	--	shows me where i am in the code
+	"SmiteshP/nvim-navic",
 
-    --	outline list thingy for navigating my code really goodly
-    "simrat39/symbols-outline.nvim",
+	--help me figure out what to put in functions with lsp! lsp signature help
+	"ray-x/lsp_signature.nvim",
 
-    --	shows me where i am in the code
-    "SmiteshP/nvim-navic",
+	--nvim dap
+	"mfussenegger/nvim-dap",
 
-    --help me figure out what to put in functions with lsp! lsp signature help
-    "ray-x/lsp_signature.nvim",
+	--nvim dap ui
+	"rcarriga/nvim-dap-ui",
 
-    --nvim dap
-    "mfussenegger/nvim-dap",
+	--neodev, for making it easier to work on neovim
+	{ "folke/neodev.nvim", opts = {}, lazy = true },
 
-    --nvim dap mason
-    "jay-babu/mason-nvim-dap.nvim",
+	--flash, for better movement
+	"folke/flash.nvim",
 
-    --nvim dap ui
-    "rcarriga/nvim-dap-ui",
-
-    --neodev, for making it easier to work on neovim
-    { "folke/neodev.nvim",        opts = {},  lazy = true },
-
-    --flash, for better movement
-    "folke/flash.nvim",
-
-    { "mfussenegger/nvim-jdtls", lazy = true },
-
-    {
-        "nvim-neorg/neorg",
-        build = ":Neorg sync-parsers",
-        run = ":Neorg sync-parsers",
-        dependencies = { "nvim-lua/plenary.nvim" },
-    },
+	{
+		"nvim-neorg/neorg",
+		build = ":Neorg sync-parsers",
+		run = ":Neorg sync-parsers",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
 }
 
 require("lazy").setup({ plugins })
