@@ -80,11 +80,8 @@ local plugins = {
 	--help me figure out what to put in functions with lsp! lsp signature help
 	"ray-x/lsp_signature.nvim",
 
-	--nvim dap
-	"mfussenegger/nvim-dap",
-
 	--nvim dap ui
-	"rcarriga/nvim-dap-ui",
+  { "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
 
 	--neodev, for making it easier to work on neovim
 	{ "folke/neodev.nvim", opts = {}, lazy = true },
