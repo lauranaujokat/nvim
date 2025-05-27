@@ -47,11 +47,9 @@ cmp.setup({
 		vsnip = 850,
 		path = 750,
 		buffer = 500,
-		neorg = 1500,
 		crates = 2000
 	},
 	sources = cmp.config.sources({
-		{ name = "neorg" },
 		{ name = "nvim_lsp" },
 		{ name = "vsnip" },
 		{ name = "path" },

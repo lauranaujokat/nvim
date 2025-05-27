@@ -26,6 +26,8 @@ local plugins = {
     },
     --filebrowser for telescope
     { "nvim-telescope/telescope-file-browser.nvim", lazy = true },
+
+    --tree sitter
     { "nvim-treesitter/nvim-treesitter",            lazy = true },
 
     --indents with pretty lines uwu
@@ -98,8 +100,7 @@ local plugins = {
             },
         },
     },
-    { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
-    -- { "folke/neodev.nvim", enabled = false }, -- make sure to uninstall or disable neodev.nvim
+
     --flash, for better movement
     "folke/flash.nvim",
 
@@ -111,9 +112,6 @@ local plugins = {
 
     -- pretty startup
     "startup-nvim/startup.nvim",
-
-    -- org mode in neovim
-    "nvim-neorg/neorg",
 
     -- crates plugin for rust
     {
